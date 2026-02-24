@@ -100,6 +100,7 @@ p {
 .name {
     font-size: clamp(1.25rem, 3vw, 2.5rem);
     letter-spacing: 0.08rem;
+    text-align: center;
 }
 
 .profile {
@@ -113,8 +114,10 @@ p {
 }
 
 .mountain-icon {
+  display: inline-blcok;
   height: min(100px, 20vw);
   width: auto;
+  margin-inline: auto;
   aspect-ratio: 1 / 1;
 }
 
@@ -128,6 +131,7 @@ p {
 .waves-image {
   width: min(40rem, 90vw);
   height: auto;
+  margin-inline: auto;
 }
 
 .headshot-image {
@@ -234,7 +238,7 @@ p {
 }
 
 .btn:hover {
-  transform: translateY(-3px)
+  transform: translateY(-3px);
   filter: brightness(1.02);
 }
 
