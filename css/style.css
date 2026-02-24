@@ -1,8 +1,10 @@
+/*-- Global --*/
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-.tech-stack span::before {
+.tech-stack span + span::before {
   content: " • ";
 }
 
@@ -13,12 +15,17 @@ html, body {
   font-size: 16px;
 }
 
-/* Typography */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*-- Typography --*/
 .babylonica-regular {
   font-family: "Babylonica", cursive;
   font-weight: 400;
   font-style: normal;
-  font-size: 100px;
+  font-size: clamp(3.25rem, 8vw, 6.25rem);
 }
 
 
@@ -29,6 +36,14 @@ html, body {
   font-style: normal;
   font-variation-settings:
     "width" 100;
+}
+
+body {
+  color: #1f2a2a;
+  background: #fff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 h3 {
@@ -47,7 +62,7 @@ p {
   line-height: 1.6;
 }
 
-/* Animated backgrounds */
+/*-- Animated backgrounds --*/
 .intro {
   background: radial-gradient(#FFFFFF, #A7E6FF, #D3F1DF) ;
   background-size: 150% 150%;
@@ -67,12 +82,8 @@ p {
   100% {background-position: 0% 50%;}
 }
 
-/* Respect motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .intro, .intro-2 { animation: none; }
-}
 
-/* Layout */
+/*-- Layout --*/
 .top-container {
     display: grid;
     grid-template-rows: 1fr 2fr;
@@ -164,7 +175,6 @@ p {
 .parent {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  grid-template-rows: repeat(1, 1fr);
   width: min(72rem, 90vw);
   margin: 100px auto 0 auto;
   text-align: left;
@@ -207,7 +217,7 @@ p {
   padding-bottom: 5rem;
 }
 
-/* Buttons & links */
+/*-- Buttons & links --*/
 .btn {
   background: #a1e8c3;
   background-image: linear-gradient(to bottom, #a1e8c3, #11999e);
@@ -219,11 +229,18 @@ p {
   text-decoration: none;
   display: inline-block;
   line-height: 1;
-  transition: transform 0.5s ease, box-shadow 0.9s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 .btn:hover {
-  transform: translateY(-4px)
+  transform: translateY(-3px)
+  filter: brightness(1.02);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.14);
 }
 
 .btn:focus-visible {
@@ -259,6 +276,7 @@ p {
 .footer-link:hover,
 .footer-link:focus-visible {
   text-decoration: underline;
+  text-underline-offset:0.2em;
 }
 
 .copyright {
@@ -268,7 +286,7 @@ p {
   color: #255;
 }
 
-/* Small screen adjustments */
+/*-- Responsive --*/
 @media (max-width: 800px) {
   
   .top-container {
@@ -283,9 +301,11 @@ p {
     text-align: center;
   }
   .about-me, .message { width: 90%; }
+  .skills {padding-top: 3rem; }
+  .parent {margin-top: 2rem; }
+  .message {padding-bottom: 3rem; }
 }
 
-/* tighter rules for small screens */
 @media (max-width: 600px) {
   .introduction {
     max-width: 100%;
@@ -302,6 +322,8 @@ p {
   }
 }
 
+/*-- Respect Motion Preferences --*/
 @media (prefers-reduced-motion: reduce) {
+  .intro, .intro-2 { animation: none; }
   .btn { transition: none; }
 }
