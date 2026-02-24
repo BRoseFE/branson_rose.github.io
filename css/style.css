@@ -88,6 +88,7 @@ p {
     display: grid;
     grid-template-rows: 1fr 2fr;
     grid-template-columns: 1fr 2fr 1fr;
+    position: relative;
     color: #0a7a3d;
 }
 
@@ -122,10 +123,13 @@ p {
 }
 
 .tree-image {
-  grid-column: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
   height: 30rem;
   width: auto;
   object-fit: contain;
+  margin: 0;
 }
 
 .waves-image {
